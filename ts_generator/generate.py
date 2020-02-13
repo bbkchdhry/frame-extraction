@@ -9,6 +9,7 @@ load_dotenv(find_dotenv(), override=True)
 stream1 = os.getenv("stream_kantipur")
 stream2 = os.getenv("stream_zeetv")
 stream3 = os.getenv("stream_abpnews")
+stream4 = os.getenv("stream_radio_kantipur")
 stream_home = os.getenv("stream_home")
 
 pid = 0
@@ -54,8 +55,8 @@ if __name__ == '__main__':
     t1 = Thread(target=run, args=[stream_home+"/kantipur", 'kantipur', stream1])
     t2 = Thread(target=run, args=[stream_home+"/zeetv", 'zeetv', stream2])
     t3 = Thread(target=run, args=[stream_home+"/abpnews", 'abpnews', stream3])
+    t4 = Thread(target=run, args=[stream_home+"/radio_kantipur", 'radio_kantipur', stream4])
     t1.start()
     t2.start()
     t3.start()
-    # t2 = Thread(target=remove_previous_ts)
-    # t2.start()
+    t4.start()

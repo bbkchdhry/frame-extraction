@@ -16,7 +16,7 @@ ts_list = []
 
 
 def run(stream_dir, stream_name, stream):
-    cmd = """ffmpeg -y -i {0} -f hls -s:v 960x540 -hls_list_size 5 -hls_time 5 -hls_flags delete_segments -b:v 168k \
+    cmd = """ffmpeg -y -i {0} -f hls -s:v 960x540 -hls_list_size 5 -hls_time 5 -hls_flags delete_segments -hls_allow_cache 0 -b:v 168k \
     -b:a 125k -maxrate 202k -hls_segment_filename {1}/{2}_%04d.ts -strict -2 {3}/{4}.m3u8""".format(stream, stream_dir, stream_name, stream_dir, stream_name)
     p = sp.Popen(cmd, stdout=sp.PIPE, shell=True)
     p.communicate()
